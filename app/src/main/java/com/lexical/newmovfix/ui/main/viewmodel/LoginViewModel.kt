@@ -16,7 +16,7 @@ class LoginViewModel(): ViewModel() {
     private val compositeDisposable =CompositeDisposable()
 
     fun login(email: String, password: String) {
-        compositeDisposable.add(RetrofitInstance.apiInteface.login(email, password)
+        compositeDisposable.add(RetrofitInstance.apiInterface.login(email, password)
             .subscribeOn(Schedulers.newThread())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeWith(object : DisposableSingleObserver<LoginUserResponse>() {
