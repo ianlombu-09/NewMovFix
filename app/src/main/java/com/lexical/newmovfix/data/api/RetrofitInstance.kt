@@ -6,7 +6,6 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 
 object RetrofitInstance {
     val retrofitClient: Retrofit.Builder by lazy {
@@ -23,6 +22,7 @@ object RetrofitInstance {
             .addConverterFactory(GsonConverterFactory.create())
     }
 
+    /*
     val retrofitMovie: Retrofit.Builder by lazy {
         val logging =HttpLoggingInterceptor()
         logging.level = HttpLoggingInterceptor.Level.BODY
@@ -37,9 +37,11 @@ object RetrofitInstance {
                 .addConverterFactory(GsonConverterFactory.create())
     }
 
-    val apiInterface: ApiInterface by lazy {
-        retrofitClient.build().create(ApiInterface::class.java)
-        retrofitMovie.build().create(ApiInterface::class.java)
+     */
+
+    val API_SERVICE: ApiService by lazy {
+        retrofitClient.build().create(ApiService::class.java)
+        //retrofitMovie.build().create(ApiInterface::class.java)
     }
 
 }

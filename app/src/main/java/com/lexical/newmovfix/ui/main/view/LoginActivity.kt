@@ -25,6 +25,12 @@ class LoginActivity : AppCompatActivity() {
             loginViewModel.login(et_email.text.toString(), et_password.text.toString())
         }
 
+        btn_register.setOnClickListener {
+            Toast.makeText(this, "Click Btn Register", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
+        }
+
         setObserver()
     }
 
@@ -33,8 +39,8 @@ class LoginActivity : AppCompatActivity() {
             if (it != null) {
                 Toast.makeText(this, "Login Success", Toast.LENGTH_SHORT).show()
 
-                val intent = Intent(this, HomeActivity::class.java)
-                startActivity(intent)
+//                val intent = Intent(this, RegisterActivity::class.java)
+//                startActivity(intent)
             }
         })
 

@@ -13,4 +13,5 @@
     <color name="sub_header">#ADECF0</color>
     <color name="yellow">#E8F830</color>
     <color name="green">#09FF00</color>
+    <color name="btn_warning">#CD6228</color>
 </resources>

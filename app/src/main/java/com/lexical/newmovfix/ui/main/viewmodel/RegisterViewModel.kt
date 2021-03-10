@@ -9,14 +9,14 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
 
-class LoginViewModel(): ViewModel() {
+class RegisterViewModel(): ViewModel() {
 
     private val loginUserResponse = MutableLiveData<LoginUserResponse>()
     private val errorListener = MutableLiveData<Boolean>()
-    private val compositeDisposable =CompositeDisposable()
+    private val compositeDisposable = CompositeDisposable()
 
-    fun login(email: String, password: String) {
-        compositeDisposable.add(RetrofitInstance.API_SERVICE.login(email, password)
+    fun register(email: String, userName: String, address: String, dob: String, password: String) {
+        compositeDisposable.add(RetrofitInstance.API_SERVICE.register(email, userName, address, dob, password)
             .subscribeOn(Schedulers.newThread())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeWith(object : DisposableSingleObserver<LoginUserResponse>() {
@@ -35,7 +35,7 @@ class LoginViewModel(): ViewModel() {
         )
     }
 
-    fun getLoginUserResponse(): MutableLiveData<LoginUserResponse>{
+    fun getRegisterUserResponse(): MutableLiveData<LoginUserResponse> {
         return loginUserResponse
     }
 

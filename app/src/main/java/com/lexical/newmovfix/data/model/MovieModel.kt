@@ -1,4 +1,5 @@
 package com.lexical.newmovfix.data.model
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 
 data class MovieModel (
@@ -20,4 +21,5 @@ data class MovieModel (
 
     @SerializedName("vote_average")
     val vote_average: Float
+
 )
