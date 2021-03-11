@@ -3,7 +3,6 @@ package com.lexical.newmovfix.ui.main.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -23,6 +22,8 @@ class LoginActivity : AppCompatActivity() {
 
         btn_login.setOnClickListener{
             loginViewModel.login(et_email.text.toString(), et_password.text.toString())
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
         }
 
         btn_register.setOnClickListener {
@@ -38,9 +39,6 @@ class LoginActivity : AppCompatActivity() {
         loginViewModel.getLoginUserResponse().observe(this, Observer {
             if (it != null) {
                 Toast.makeText(this, "Login Success", Toast.LENGTH_SHORT).show()
-
-//                val intent = Intent(this, RegisterActivity::class.java)
-//                startActivity(intent)
             }
         })
 

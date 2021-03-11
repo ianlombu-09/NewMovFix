@@ -1,9 +1,10 @@
 package com.lexical.newmovfix.data.api
 
 import com.lexical.newmovfix.data.model.LoginUserResponse
-import com.lexical.newmovfix.data.model.MovieResponse
-import com.lexical.newmovfix.utils.Credentials
+import com.lexical.newmovfix.data.model.MovieModel
+import com.lexical.newmovfix.data.model.MoviePopularResponse
 import io.reactivex.Single
+import retrofit2.Response
 import retrofit2.http.*
 
 interface ApiService {
@@ -21,7 +22,9 @@ interface ApiService {
                 ): Single<LoginUserResponse>
 
 
-    @GET("movie/popular?api_key=" + Credentials.API_KEY)
-    fun getMovies(): Single<MovieResponse>
+    @GET("movie/popular?api_key=b1fbb59223a6f5e7113c60d079c7c503")
+    suspend fun getPopularMovies(): Response<MoviePopularResponse>
 
+    @GET("movie/458576?api_key=b1fbb59223a6f5e7113c60d079c7c503")
+    suspend fun getDetailMovie(): Response<MovieModel>
 }

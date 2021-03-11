@@ -1,35 +1,63 @@
-//package com.lexical.newmovfix.ui.main.view
-//
-//import androidx.appcompat.app.AppCompatActivity
-//import android.os.Bundle
-//import androidx.navigation.NavController
-//import androidx.navigation.fragment.NavHostFragment
-//import androidx.navigation.fragment.findNavController
-//import androidx.navigation.ui.AppBarConfiguration
-//import androidx.navigation.ui.setupActionBarWithNavController
-//import androidx.navigation.ui.setupWithNavController
-//import com.lexical.newmovfix.R
-//import com.lexical.newmovfix.databinding.ActivityHomeBinding
-//
-//class HomeActivity : AppCompatActivity() {
-//
-//    private lateinit var navController: NavController
-//
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//
-//        super.onCreate(savedInstanceState)
-//        val binding = ActivityHomeBinding.inflate(layoutInflater)
-//        setContentView(binding.root)
-//
-//        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_container) as NavHostFragment
-//        navController = navHostFragment.findNavController()
-//
-//        val appBarConfiguration = AppBarConfiguration.Builder(
-//            R.id.menu_movie, R.id.menu_favorite
-//        ).build()
-//        setupActionBarWithNavController(navController, appBarConfiguration)
-//        binding.apply {
-//            navBottom.setupWithNavController(navController)
-//        }
-//    }
-//}
+package com.lexical.newmovfix.ui.main.view
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.view.View
+import android.widget.Toast
+import androidx.activity.viewModels
+import androidx.lifecycle.Observer
+import com.lexical.newmovfix.R
+import com.lexical.newmovfix.ui.main.adapter.HomeAdapter
+import com.lexical.newmovfix.ui.main.viewmodel.HomeViewModel
+import com.lexical.newmovfix.utils.Status
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.activity_home.*
+
+@AndroidEntryPoint
+class HomeActivity : AppCompatActivity() {
+
+    private val homeViewModel: HomeViewModel by viewModels()
+    private lateinit var adapter: HomeAdapter
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_home)
+
+        setUpObserverPopular()
+
+    }
+
+    private fun setUpObserver() {
+        homeViewModel.movies.observe(this, Observer {
+            when (it.status) {
+                Status.SUCCESS -> {
+                    Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
+                }
+                Status.LOADING -> {
+                    Toast.makeText(this, "Loading", Toast.LENGTH_SHORT).show()
+                }
+                Status.ERROR -> {
+                    progressBar.visibility = View.GONE
+                    Toast.makeText(this, it.message, Toast.LENGTH_SHORT).show()
+                }
+            }
+        })
+    }
+
+    private fun setUpObserverPopular() {
+        homeViewModel.popularMovies.observe(this, Observer {
+            when (it.status) {
+                Status.SUCCESS -> {
+                    Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
+                }
+                Status.LOADING -> {
+                    Toast.makeText(this, "Loading", Toast.LENGTH_SHORT).show()
+                }
+                Status.ERROR -> {
+                    progressBar.visibility = View.GONE
+                    Toast.makeText(this, it.message, Toast.LENGTH_SHORT).show()
+                }
+            }
+        })
+    }
+}
