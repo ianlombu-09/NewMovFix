@@ -28,7 +28,7 @@ class HomeViewModel @ViewModelInject constructor(
         get() = _popularMovies
 
     init {
-        fetchDetailMovie()
+        //fetchDetailMovie()
         fetchPopularMovies()
     }
 

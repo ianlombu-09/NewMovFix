@@ -9,5 +9,5 @@ data class MoviePopularResponse (
     val page : Int,
 
     @SerializedName ("results")
-    val popularResults: Response<List<MoviePopularModel>>
+    val popularResults: List<MoviePopularModel>
 )
