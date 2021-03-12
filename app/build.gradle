@@ -53,13 +53,6 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    //Material
-    //implementation "com.google.android.material:material:$materialVersion"
-
-    // Navigation Component
-   // implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
-    //implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
-
     // Dagger Hilt
     implementation "com.google.dagger:hilt-android:$hiltVersion"
     kapt "com.google.dagger:hilt-android-compiler:$hiltVersion"
@@ -71,31 +64,15 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-moshi:2.6.2'
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
 
-    // Paging 3
-    //implementation "androidx.paging:paging-runtime:$pagingVersion"
-
     // Glide
     implementation "com.github.bumptech.glide:glide:$glideVersion"
 
-    // Room components
-//    implementation "androidx.room:room-runtime:$roomVersion"
-//    annotationProcessor "androidx.room:room-compiler:$roomVersion"
-//    androidTestImplementation "androidx.room:room-testing:$roomVersion"
-//    implementation "androidx.room:room-ktx:$roomVersion"
-//    kapt "androidx.room:room-compiler:$roomVersion"
-
-    // Lifecycle components
-//    implementation "androidx.lifecycle:lifecycle-extensions:$archLifecycleVersion"
-//    annotationProcessor "androidx.lifecycle:lifecycle-compiler:$archLifecycleVersion"
-
     implementation 'com.squareup.okhttp3:logging-interceptor:4.9.0'
     implementation 'com.squareup.okhttp3:okhttp:4.9.0'
-    //implementation 'com.amitshekhar.android:rx2-android-networking:1.0.2'
     implementation 'io.reactivex.rxjava2:rxjava:2.2.18'
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
     implementation "com.squareup.retrofit2:adapter-rxjava2:2.9.0"
 
-    //implementation "androidx.recyclerview:recyclerview:1.1.0"
     implementation "android.arch.lifecycle:extensions:1.1.1"
     implementation 'com.github.bumptech.glide:glide:4.12.0'
     implementation 'androidx.activity:activity-ktx:1.2.1'

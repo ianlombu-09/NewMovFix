@@ -6,5 +6,5 @@ import javax.inject.Inject
 class MainRepository @Inject constructor(private val apiHelper: ApiHelper) {
 
     suspend fun getDetailMovie() = apiHelper.getDetailMovie()
-    suspend fun getPopularMovies() = apiHelper.getPopularMovies()
+    fun getPopularMovies() = apiHelper.getPopularMovies()
 }

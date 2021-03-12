@@ -1,6 +1,7 @@
 package com.lexical.newmovfix.data.model
 
 import com.google.gson.annotations.SerializedName
+import io.reactivex.Single
 import retrofit2.Response
 
 data class MoviePopularResponse (
@@ -9,5 +10,5 @@ data class MoviePopularResponse (
     val page : Int,
 
     @SerializedName ("results")
-    val popularResults: List<MoviePopularModel>
+    val popularResults: Single<List<MoviePopularModel>>
 )
