@@ -10,5 +10,5 @@ data class MoviePopularResponse (
     val page : Int,
 
     @SerializedName ("results")
-    val popularResults: Single<List<MoviePopularModel>>
+    val popularResults: List<MoviePopularModel>
 )

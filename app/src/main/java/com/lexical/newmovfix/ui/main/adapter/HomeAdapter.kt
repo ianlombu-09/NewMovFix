@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.lexical.newmovfix.R
 import com.lexical.newmovfix.data.model.MovieModel
-import com.lexical.newmovfix.data.model.MoviePopularResponse
 import kotlinx.android.synthetic.main.recycler_popular_movie.view.*
 
 class HomeAdapter(

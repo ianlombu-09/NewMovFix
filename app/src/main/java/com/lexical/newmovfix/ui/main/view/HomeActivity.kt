@@ -64,7 +64,7 @@ class HomeActivity : AppCompatActivity() {
                 Status.SUCCESS -> {
                     progressBar.visibility = View.GONE
                     //it.data?.let { movies -> renderList(movies) }
-                    //it.data
+                    it.data
                     recyclerView.visibility = View.VISIBLE
                 }
                 Status.LOADING -> {

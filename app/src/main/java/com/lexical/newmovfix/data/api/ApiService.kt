@@ -23,7 +23,7 @@ interface ApiService {
 
 
     @GET("movie/popular?api_key=b1fbb59223a6f5e7113c60d079c7c503")
-    fun getPopularMovies(): Single<MoviePopularResponse>
+    suspend fun getPopularMovies(): Response<MoviePopularResponse>
 
     @GET("movie/458576?api_key=b1fbb59223a6f5e7113c60d079c7c503")
     suspend fun getDetailMovie(): Response<MovieModel>

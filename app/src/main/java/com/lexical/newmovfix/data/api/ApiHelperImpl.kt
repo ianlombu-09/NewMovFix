@@ -2,8 +2,6 @@ package com.lexical.newmovfix.data.api
 
 import com.lexical.newmovfix.data.model.MovieModel
 import com.lexical.newmovfix.data.model.MoviePopularResponse
-import com.lexical.newmovfix.data.model.User
-import io.reactivex.Single
 import retrofit2.Response
 import javax.inject.Inject
 
@@ -11,5 +9,5 @@ class ApiHelperImpl @Inject constructor(private val apiService: ApiService) : Ap
 
     override suspend fun getDetailMovie(): Response<MovieModel> = apiService.getDetailMovie()
 
-    override fun getPopularMovies(): Single<MoviePopularResponse> = apiService.getPopularMovies()
+    override suspend fun getPopularMovies(): Response<MoviePopularResponse> = apiService.getPopularMovies()
 }
